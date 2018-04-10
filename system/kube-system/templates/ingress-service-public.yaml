@@ -1,12 +1,12 @@
-{{- if .Values.public_service }}
+{{- if .Values.ingress.public_service }}
 kind: Service
 apiVersion: v1
 
 metadata:
   name: ingress-controller-public
   annotations:
-      prometheus.io/scrape: "true"
-      prometheus.io/port: "10254"
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "10254"
 spec:
   type: ClusterIP 
   selector:
@@ -15,6 +15,6 @@ spec:
     - name: https 
       port: 443 
       targetPort: https
-  externalIPs: 
-    - {{.Values.external_public_service_ip}}
+  externalIPs:
+    - {{.Values.ingress.external_public_service_ip}}
 {{- end }}
