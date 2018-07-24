@@ -1,2 +1,17 @@
 ingress:
   external_service_ip: DEFINED-AS-VALUE
+
+metallb:
+  prometheus:
+    scrapeAnnotations: true
+
+  serviceAccounts:
+    controller:
+      create: false
+      name: default
+    speaker:
+      create: false
+      name: default
+
+  # configInline:
+  # defined in region secrets
