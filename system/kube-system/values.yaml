@@ -2,6 +2,9 @@ ingress:
   external_service_ip: DEFINED-AS-VALUE
 
 metallb:
+  rbac:
+    create: false
+
   prometheus:
     scrapeAnnotations: true
 
